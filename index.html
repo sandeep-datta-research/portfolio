@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sandeep Datta | Developer</title>
+
+<style>
+
+/* =====================
+   GLOBAL STYLES
+===================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #0b0f1a, #05070d);
+  color: white;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 100px 10%;
+  position: relative;
+}
+
+h1, h2 {
+  font-weight: 700;
+}
+
+p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.energy-core {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #a855f7, #4c1d95 60%, transparent 70%);
+  box-shadow: 0 0 80px #9333ea;
+  animation: pulse 3s infinite ease-in-out;
+  margin-bottom: 40px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 60px #9333ea; }
+  50% { transform: scale(1.1); box-shadow: 0 0 120px #c084fc; }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin-bottom: 30px;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: 1px solid #9333ea;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin: 5px;
+}
+
+.btn:hover {
+  background: #9333ea;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #9333ea;
+}
+
+/* =====================
+   GLASS CARD
+===================== */
+
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 15px;
+  transition: 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(168,85,247,0.4);
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* =====================
+   SKILL BARS
+===================== */
+
+.skill {
+  margin: 20px 0;
+}
+
+.skill-bar {
+  height: 8px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0;
+  background: #9333ea;
+  transition: width 2s ease;
+}
+
+/* =====================
+   COUNTERS
+===================== */
+
+.counter {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c084fc;
+}
+
+/* =====================
+   CONTACT FORM
+===================== */
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+@media(max-width: 768px){
+  .hero h1 { font-size: 2rem; }
+  section { padding: 80px 5%; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="energy-core"></div>
+  <h1>Build. Evolve. Dominate.</h1>
+  <p>Sandeep Datta — Developer & Performance-Driven Creator</p>
+  <div>
+    <a href="#projects"><button class="btn">View Projects</button></a>
+    <a href="#contact"><button class="btn">Contact Me</button></a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="container">
+    <h2>About Me</h2>
+    <p>
+      Sandeep Datta builds immersive digital experiences, responsive interfaces,
+      and scalable systems. Focused on performance, precision, and structured growth.
+    </p>
+
+    <div class="skill">
+      <p>Frontend Development</p>
+      <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+    </div>
+
+    <div class="skill">
+      <p>AI Integration</p>
+      <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+    </div>
+
+    <div class="skill">
+      <p>Performance Optimization</p>
+      <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>Core Strengths</h2>
+  <div class="grid grid-3">
+    <div class="card">Web Development</div>
+    <div class="card">UI Architecture</div>
+    <div class="card">AI Tool Integration</div>
+    <div class="card">Performance Engineering</div>
+    <div class="card">Athletic Discipline (Calisthenics)</div>
+    <div class="card">Competitive Sports Mindset</div>
+  </div>
+</section>
+
+<!-- PERFORMANCE -->
+<section>
+  <h2>Performance Metrics</h2>
+  <div class="grid grid-3">
+    <div class="card">
+      <div class="counter" data-target="100">0</div>
+      Consistency
+    </div>
+    <div class="card">
+      <div class="counter" data-target="95">0</div>
+      Strength Progression
+    </div>
+    <div class="card">
+      <div class="counter" data-target="98">0</div>
+      Skill Development
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid grid-3">
+    <div class="card">
+      <h3>Project One</h3>
+      <p>Responsive web application with optimized performance.</p>
+    </div>
+    <div class="card">
+      <h3>Project Two</h3>
+      <p>AI-powered interface system.</p>
+    </div>
+    <div class="card">
+      <h3>Project Three</h3>
+      <p>Interactive UI experience with smooth animations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button class="btn">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  Sandeep Datta © 2026 — Built with Precision
+</footer>
+
+<script>
+
+/* =====================
+   SCROLL REVEAL
+===================== */
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.card').forEach(card => {
+  observer.observe(card);
+});
+
+/* =====================
+   SKILL BAR ANIMATION
+===================== */
+
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const fill = entry.target.querySelector('.skill-fill');
+      fill.style.width = fill.dataset.width;
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.skill').forEach(skill => {
+  skillObserver.observe(skill);
+});
+
+/* =====================
+   COUNTER ANIMATION
+===================== */
+
+const counters = document.querySelectorAll('.counter');
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const counter = entry.target;
+      const target = +counter.dataset.target;
+      let count = 0;
+
+      const update = () => {
+        count += target / 100;
+        if(count < target){
+          counter.innerText = Math.floor(count);
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      update();
+    }
+  });
+}, { threshold: 0.7 });
+
+counters.forEach(counter => {
+  counterObserver.observe(counter);
+});
+
+</script>
+
+</body>
+</html>
