@@ -22,4 +22,4 @@ python3 -m http.server 8080
 Then open `http://localhost:8080`.
 
 ## Attribution & license
-The visual structure and interaction components are adapted from [ECHO-WEBSITE](https://github.com/Jishnu09-siuu/ECHO-WEBSITE) by Jishnu Mondal. The upstream project describes itself as MIT-licensed; the upstream repository did not expose a standalone LICENSE file when adapted. Upstream asset files are referenced from its public repository. Please review the original repository for the latest license and attribution terms before redistributing the template.
+The visual structure and interaction components are adapted from [ECHO-WEBSITE](https://github.com/Jishnu09-siuu/ECHO-WEBSITE) by Jishnu Mondal. The upstream README describes the project as MIT-licensed, but no standalone LICENSE file was present when this adaptation was made. Upstream visual assets are referenced from the original public repository. Review the upstream repository for the current license terms before redistributing this template.
