@@ -6,13 +6,14 @@
 <meta name="theme-color" content="#161616">
 <meta name="description" content="Orbit — Secure system">
 <title>Orbit — Secure system</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400&family=Orbit:wght@400&display=block" rel="stylesheet">
 <style>
 :root{--ink:#ffffff;--surface:#161616;--orb-reveal:cubic-bezier(.16,1,.3,1);--orb-soft:cubic-bezier(.25,.8,.28,1)}
 *{box-sizing:border-box}
 html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#161616}
-body{font-family:"Orbit Sans",Arial,Helvetica,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-@font-face{font-family:"Orbit Sans";src:local("Arial");font-style:normal;font-weight:400;font-display:block}
-@font-face{font-family:"Orbit Display";src:local("Times New Roman");font-style:normal;font-weight:400;font-display:block}
+body{font-family:"Orbit Sans","Orbit",Arial,Helvetica,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 button,a{-webkit-tap-highlight-color:transparent}
 a{color:inherit;text-decoration:none}
 .viewport{position:fixed;inset:0;background:var(--surface);overflow:hidden}
@@ -26,7 +27,7 @@ a{color:inherit;text-decoration:none}
 .primary-nav a:nth-child(3){left:27.578125vw;transform:scaleX(1.126);transform-origin:left center}
 .primary-nav a:nth-child(4){left:36.171875vw;transform:scaleX(1.168);transform-origin:left center}
 .system-pill{position:absolute;z-index:4;top:2.336449dvh;right:7.5vw;height:clamp(34px,4.439252dvh,57px);padding:0 clamp(17px,2vw,32px);border-radius:999px;background:#fff;color:#161616;display:flex;align-items:center;justify-content:center;font-size:clamp(12px,1.05vw,18px);letter-spacing:.026923em;white-space:nowrap}
-.orbit-word{position:absolute;z-index:1;top:11.565421dvh;left:4.348958vw;margin:0;font-family:"Orbit Display","Times New Roman",Times,serif;font-size:min(27.8125vw,55dvh);font-weight:400;line-height:.9;letter-spacing:.033708em;white-space:nowrap}
+.orbit-word{position:absolute;z-index:1;top:11.565421dvh;left:4.348958vw;margin:0;font-family:"Orbit Display","DM Serif Display","Times New Roman",Times,serif;font-size:min(27.8125vw,55dvh);font-weight:400;line-height:.9;letter-spacing:.033708em;white-space:nowrap}
 .orbit-word__mask{display:block;overflow:hidden;padding:0 .04em .12em 0;margin:0 -.04em -.12em 0}
 .orbit-word__inner{display:inline-flex;align-items:baseline;transform:translateY(0)}
 .orbit-word__white{color:#fff;display:inline-flex;align-items:baseline}
@@ -128,7 +129,7 @@ class MorphTrailLayer{
  else c.globalCompositeOperation='source-over';
  for(const p of this.points){c.globalAlpha=p.alpha;c.fillStyle='#fff';drawMorphBlob(c,p.x,p.y,p.r,time,p.seed)}
  c.globalAlpha=1;c.globalCompositeOperation='source-over';
- this.layer.style.maskImage='url('+this.canvas.toDataURL('image/png')+')';this.layer.style.webkitMaskImage='url('+this.canvas.toDataURL('image/png')+')';
+ const maskUrl='url('+this.canvas.toDataURL('image/png')+')';this.layer.style.maskImage=maskUrl;this.layer.style.webkitMaskImage=maskUrl;
  }
 }
 function drawMorphBlob(ctx,cx,cy,r,t,seed){
