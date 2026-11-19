@@ -58,6 +58,21 @@ html.anim .support-copy__inner{animation:orb-corner 720ms var(--orb-soft) 980ms 
 @keyframes orb-corner{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
 @keyframes orb-quiet{from{opacity:0;translate:0 5px}to{opacity:1;translate:0 0}}
 @keyframes orb-dim{from{opacity:0}to{opacity:1}}
+
+/* LivLiv character companion */
+.sena-toggle{position:absolute;z-index:8;top:10.5dvh;right:3vw;display:flex;align-items:center;gap:9px;padding:10px 15px;border:1px solid #ffffff55;border-radius:999px;background:#222;color:#fff;font:inherit;font-size:13px;cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.sena-toggle:hover{background:#333;border-color:#fff;transform:translateY(-2px)}
+.sena-toggle__dot{width:7px;height:7px;border-radius:50%;background:#f79bc8;box-shadow:0 0 12px #f79bc8}
+.sena-panel{position:absolute;z-index:8;top:16.5dvh;right:2vw;width:min(290px,32vw);height:min(390px,67dvh);padding:8px;border:1px solid #ffffff30;border-radius:22px;background:rgba(22,22,22,.88);box-shadow:0 18px 60px #0008;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.sena-panel[hidden]{display:none!important}
+.sena-panel iframe{display:block;width:100%;height:calc(100% - 25px);border:0;border-radius:15px;background:transparent}
+.sena-credit{height:25px;display:flex;align-items:center;justify-content:center;color:#aaa;font-size:10px;letter-spacing:.02em}
+.sena-credit a{text-decoration:underline;text-underline-offset:2px}
+@media(max-width:900px),(max-aspect-ratio:4/5){
+ .sena-toggle{top:calc(max(18px,env(safe-area-inset-top)) + 64px);right:max(18px,env(safe-area-inset-right));padding:9px 13px;font-size:12px}
+ .sena-panel{top:calc(max(18px,env(safe-area-inset-top)) + 112px);right:12px;width:min(250px,70vw);height:min(340px,54dvh)}
+}
+
 @media(max-width:1200px),(max-aspect-ratio:4/5){.orbit-word{left:0;width:100%;text-align:center}}
 @media(max-width:900px),(max-aspect-ratio:4/5){
  .primary-nav,.system-pill{display:none}
@@ -105,6 +120,15 @@ html.anim .support-copy__inner{animation:orb-corner 720ms var(--orb-soft) 980ms 
 </div>
 <p class="support-copy support-copy--left"><span class="support-copy__inner">Every workflow,<br>intelligently connected.</span></p>
 <p class="support-copy support-copy--right"><span class="support-copy__inner">Less manual work.<br>More meaningful output.</span></p>
+
+<button class="sena-toggle" id="sena-toggle" type="button" aria-expanded="false" aria-controls="sena-panel">
+<span class="sena-toggle__dot" aria-hidden="true"></span><span>Meet Sena</span>
+</button>
+<aside class="sena-panel" id="sena-panel" aria-label="Animated character Sena" hidden>
+<iframe id="sena-frame" title="Sena, an animated character by LivLiv" data-src="https://livliv.ai/live/k01" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<div class="sena-credit">AI-created character · <a href="https://livliv.ai" target="_blank" rel="noopener noreferrer">LivLiv</a></div>
+</aside>
+
 <button class="mobile-burger" id="menu-open" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 <button class="mobile-scrim" id="menu-scrim" type="button" aria-label="Close menu" tabindex="-1"></button>
 <aside class="mobile-sheet" id="mobile-menu" aria-label="Mobile navigation" inert>
@@ -158,6 +182,19 @@ function menu(open){stage.classList.toggle('menu-open',open);document.getElement
 document.getElementById('menu-open').addEventListener('click',()=>menu(true));document.getElementById('menu-close').addEventListener('click',()=>menu(false));document.getElementById('menu-scrim').addEventListener('click',()=>menu(false));
 document.querySelectorAll('.mobile-links a').forEach(a=>a.addEventListener('click',()=>menu(false)));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&stage.classList.contains('menu-open'))menu(false);if(e.key==='Tab'&&stage.classList.contains('menu-open')){const focusables=[...document.querySelectorAll('#mobile-menu a,#menu-close')],first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+
+const senaToggle=document.getElementById('sena-toggle');
+const senaPanel=document.getElementById('sena-panel');
+const senaFrame=document.getElementById('sena-frame');
+function toggleSena(open){
+ senaPanel.hidden=!open;
+ senaToggle.setAttribute('aria-expanded',String(open));
+ if(open&&!senaFrame.src)senaFrame.src=senaFrame.dataset.src;
+ if(!open&&senaFrame.src)senaFrame.removeAttribute('src');
+}
+senaToggle.addEventListener('click',()=>toggleSena(senaPanel.hidden));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!senaPanel.hidden)toggleSena(false)});
+
 const imgs=[...flower.querySelectorAll('img')];let loaded=0;const ready=()=>{loaded++;if(loaded>=imgs.length)resize()};imgs.forEach(img=>{if(img.complete)ready();else{img.addEventListener('load',ready,{once:true});img.addEventListener('error',ready,{once:true})}});
 window.addEventListener('resize',resize,{passive:true});if('ResizeObserver'in window)new ResizeObserver(resize).observe(flower);
 requestAnimationFrame(frame);
